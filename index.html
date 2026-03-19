@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Aditya ❤️</title>
+
+<style>
+body{margin:0;background:#0b0b12;color:white;font-family:Arial;overflow-x:hidden;}
+.section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px;opacity:0;transform:translateY(40px);transition:1s;}
+.show{opacity:1;transform:translateY(0);}
+button{padding:14px 30px;border:none;border-radius:30px;background:#ff4d6d;color:white;font-size:18px;margin-top:20px;cursor:pointer;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;max-width:1000px;margin-top:30px;}
+.photo{background:white;padding:10px;border-radius:10px;color:black;}
+.photo img{width:100%;border-radius:8px;}
+.letter{max-width:700px;line-height:1.8;background:#ffffff10;padding:30px;border-radius:10px;font-size:18px;}
+.heart{position:fixed;color:#ff4d6d;font-size:20px;animation:fall 6s linear infinite;}
+@keyframes fall{0%{top:-10%;}100%{top:110%;}}
+.hiddenMsg{display:none;margin-top:20px;font-size:20px;color:#ffccd5;}
+.reason{margin:5px 0;}
+</style>
+
+<script>
+function next(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('show'));
+document.getElementById(id).classList.add('show');
+window.scrollTo(0,0);
+}
+
+function hearts(){
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(h);
+}
+}
+
+function typeLetter(){
+let text = "We’ve known each other for years… and then May 2025 changed everything. I love your mind, your intelligence, and the way you call me those cute names. I want you to win the world… and I want to be right beside you, holding your hand. Happy 26th Birthday ❤️";
+let i=0;
+let speed=40;
+function typing(){
+if(i<text.length){
+document.getElementById("typed").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,speed);
+}
+}
+typing();
+}
+
+function showHidden(){
+setTimeout(()=>{
+document.getElementById("hidden").style.display="block";
+},4000);
+}
+
+function reasons(){
+let list=document.getElementById("reasons");
+for(let i=1;i<=26;i++){
+let p=document.createElement("div");
+p.className="reason";
+p.innerHTML="❤️ Reason "+i+": Because you are you.";
+list.appendChild(p);
+}
+}
+
+window.onload=()=>{
+next('s1');
+hearts();
+reasons();
+}
+</script>
+
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="" type="audio/mpeg">
+</audio>
+
+<div id="s1" class="section">
+<h1>I have something for you ❤️</h1>
+<button onclick="next('s2')">Start</button>
+</div>
+
+<div id="s2" class="section">
+<h1>The Man I Admire</h1>
+<div class="gallery">
+<div class="photo"><img src="images/a1.png"></div>
+<div class="photo"><img src="images/a2.png"></div>
+</div>
+<button onclick="next('s3')">Continue</button>
+</div>
+
+<div id="s3" class="section">
+<h1>Us ❤️</h1>
+<div class="gallery">
+<div class="photo"><img src="images/c1.png"></div>
+<div class="photo"><img src="images/c2.png"></div>
+<div class="photo"><img src="images/c3.png"></div>
+</div>
+<button onclick="next('s4')">Continue</button>
+</div>
+
+<div id="s4" class="section">
+<h1>One Perfect Night</h1>
+<div class="photo" style="max-width:400px;">
+<img src="images/concert.png">
+</div>
+<button onclick="next('s5')">Continue</button>
+</div>
+
+<div id="s5" class="section">
+<h1>Dear Aditya</h1>
+<div class="letter" id="typed"></div>
+<button onclick="typeLetter(); showHidden();">Read Letter</button>
+
+<div id="hidden" class="hiddenMsg">
+You are my safest place ❤️
+</div>
+
+<button onclick="next('s6')">Continue</button>
+</div>
+
+<div id="s6" class="section">
+<h1>26 Reasons I Love You</h1>
+<div id="reasons"></div>
+<button onclick="next('s7')">Final Surprise</button>
+</div>
+
+<div id="s7" class="section">
+<h1>Make a wish 🎂</h1>
+<div onclick="alert('I love you endlessly ❤️')" style="font-size:100px;cursor:pointer;">🎂</div>
+<h2>The best chapters of our story are yet to come ❤️</h2>
+</div>
+
+</body>
+</html>
